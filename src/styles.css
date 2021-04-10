@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  --pc: rgb(203, 163, 255);
+  --sc: rgb(160, 87, 255);
+  --bg: rgb(37, 37, 37);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  color: rgb(240, 240, 240);
+  background: var(--bg);
+  border-bottom: 0.05px solid rgba(211, 211, 211, 0.226);
+}
+
+.Home {
+  height: 90vh;
+  padding: 0px 30px;
+  color: rgb(211, 211, 211);
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.Home h1 {
+  color: var(--sc);
+  margin-bottom: 20px;
+}
+
+.cta {
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  font-weight: bold;
+  color: var(--pc);
+  border: 1px solid var(--pc);
+  border-radius: 20px;
+  padding: 5px 20px;
+  transition: 0.3s;
+}
+
+.cta:hover {
+  background: var(--pc);
+  color: black;
+}
+
+.todos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+
+.todos form {
+  display: flex;
+  font-size: 15px;
+  margin: 20px auto;
+}
+
+.addInput {
+  outline: none;
+  font-size: 15px;
+  padding: 5px 8px;
+  border-radius: 5px 0px 0px 5px;
+  border: 1px solid var(--pc);
+}
+
+.todo {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.addBtn {
+  font-size: 15px;
+}
+
+.addBtn,
+.todo button {
+  border: none;
+  background: var(--pc);
+  outline: none;
+  border-radius: 0px 5px 5px 0px;
+  padding: 5px 15px;
+}
+
+.todo button {
+  border-radius: 5px;
+  background: #ff3535;
+  color: white;
+  margin: 2px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 10px;
+}
+
+footer a {
+  color: white;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--pc);
+}
