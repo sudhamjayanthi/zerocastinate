@@ -4,9 +4,7 @@ import firebase from "firebase/app";
 
 export default function Signup({ user }) {
   const sighInWithGoogle = () => {
-    auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider()).then((r) => {
-      alert("Successfully logged in!")
-    });
+    auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
   };
   const signOut = () => {
     auth.signOut();
