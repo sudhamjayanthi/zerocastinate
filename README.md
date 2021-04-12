@@ -1,6 +1,6 @@
 # react-todo-list
 
-A todo list app. Visit it live at [](https://todo.sudham.tk)
+A todo list app. Visit it live [here!](https://todo.sudham.tk)
 
 - Minimal & Clean UI
 
