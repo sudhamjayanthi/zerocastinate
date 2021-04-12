@@ -1,6 +1,6 @@
-# react-todo-list
+# ZeroCastinate 
 
-A todo list app. Visit it live [here!](https://todo.sudham.tk)
+A simple todo list app. Visit it live [here!](https://todo.sudham.tk)
 
 - Minimal & Clean UI
 
