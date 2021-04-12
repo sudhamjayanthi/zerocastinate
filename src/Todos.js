@@ -23,11 +23,11 @@ export default function Todos() {
           .catch((error) => {
             alert("Error adding todo: ", error);
           });
-        setCurrentTodo(""); // Empty the input element
+        }
+        alert("Todo too big. Set a small goal ;)")
       }
-      alert("Todo too big. Set a small goal ;)")
-    }
-    alert("Please enter something to add")
+      alert("Please enter something to add")
+      setCurrentTodo(""); // Empty the input element
   };
   const deleteTodo = (id) => todosRef.doc(id).delete();
 
