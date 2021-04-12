@@ -11,23 +11,25 @@ export default function Todos() {
   const [todos] = useCollectionData(todosRef, { idField: "id" });
 
    const addTodo = (e) => {
-    e.preventDefault();
-    if (currentTodo) {
-      if (currentTodo.length < 25) {
-        todosRef
-          .add({
-            text: currentTodo,
-            complete: false,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
-          })
-          .catch((error) => {
-            alert("Error adding todo: ", error);
-          });
-        }
-        alert("Todo too big. Set a small goal ;)")
-      }
-      alert("Please enter something to add")
-      setCurrentTodo(""); // Empty the input element
+       e.preventDefault();
+       if (currentTodo) {
+         if (currentTodo.length < 25) {
+           todosRef
+             .add({
+               text: currentTodo,
+               complete: false,
+               createdAt: firebase.firestore.FieldValue.serverTimestamp()
+             })
+             .catch((error) => {
+               alert("Error adding todo: ", error);
+             });
+         } else {
+           alert("Todo too big. Set a small goal ;)")
+         }
+       } else {
+         alert("Please enter something to add")
+       }
+       setCurrentTodo(""); // Empty the input element
   };
   const deleteTodo = (id) => todosRef.doc(id).delete();
 
