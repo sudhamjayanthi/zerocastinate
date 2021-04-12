@@ -12,8 +12,8 @@ export default function Todos() {
 
    const addTodo = (e) => {
     e.preventDefault();
-    if (currentTodo && currentTodo.length < 30) {
-      if (currentTodo.length < 30) {
+    if (currentTodo) {
+      if (currentTodo.length < 25) {
         todosRef
           .add({
             text: currentTodo,
