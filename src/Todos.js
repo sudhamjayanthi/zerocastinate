@@ -1,6 +1,6 @@
 import "./styles.css";
 import { useState } from "react";
-import firebase from "firebase";
+import firebase from "firebase/app";
 import { db, auth } from "./firebase";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
@@ -10,20 +10,24 @@ export default function Todos() {
   const todosRef = db.collection(`/users/${auth.currentUser.uid}/todos`);
   const [todos] = useCollectionData(todosRef, { idField: "id" });
 
-  const addTodo = (e) => {
+   const addTodo = (e) => {
     e.preventDefault();
-    if (currentTodo) {
-      todosRef
-        .add({
-          text: currentTodo,
-          complete: false,
-          createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        })
-        .catch((error) => {
-          alert("Error adding todo: ", error);
-        });
-      setCurrentTodo(""); // Empty the input element
+    if (currentTodo && currentTodo.length < 30) {
+      if (currentTodo.length < 30) {
+        todosRef
+          .add({
+            text: currentTodo,
+            complete: false,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+          })
+          .catch((error) => {
+            alert("Error adding todo: ", error);
+          });
+        setCurrentTodo(""); // Empty the input element
+      }
+      alert("Todo too big. Set a small goal ;)")
     }
+    alert("Please enter something to add")
   };
   const deleteTodo = (id) => todosRef.doc(id).delete();
 

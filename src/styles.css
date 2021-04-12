@@ -21,7 +21,7 @@ nav {
 }
 
 .Home {
-  height: 90vh;
+  height: 92vh;
   padding: 0px 30px;
   color: rgb(211, 211, 211);
   background: var(--bg);
@@ -31,10 +31,12 @@ nav {
   text-align: center;
 }
 
-.Home h1 {
+main h1 {
   color: var(--sc);
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
+
+
 
 .cta {
   outline: none;
@@ -50,7 +52,12 @@ nav {
 
 .cta:hover {
   background: var(--pc);
-  color: black;
+  color: whitesmoke;
+}
+
+main .cta {
+  margin-top: 30px;
+  size: 1.5em;
 }
 
 .todos {
@@ -115,4 +122,15 @@ footer a {
 
 footer a:hover {
   color: var(--pc);
+}
+
+
+@media screen and (max-width:360px) {
+  main {
+    text-align: left;
+  }
+  main h1 {
+    font-size: 1.8em;
+  }
+
 }

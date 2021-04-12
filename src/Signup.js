@@ -1,10 +1,10 @@
 import "./styles.css";
 import { auth } from "./firebase";
-import firebase from "firebase";
+import firebase from "firebase/app";
 
 export default function Signup({ user }) {
   const sighInWithGoogle = () => {
-    auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
   };
   const signOut = () => {
     auth.signOut();
