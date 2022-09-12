@@ -1,17 +1,17 @@
-import "./styles.css";
-import { useState } from "react";
-import firebase from "firebase/app";
-import { db, auth } from "./firebase";
-import { useCollectionData } from "react-firebase-hooks/firestore";
+import "./styles.css"
+import { useState } from "react"
+import firebase from "firebase/app"
+import { db, auth } from "./firebase"
+import { useCollectionData } from "react-firebase-hooks/firestore"
 
 export default function Todos() {
-  const [currentTodo, setCurrentTodo] = useState("");
+  const [currentTodo, setCurrentTodo] = useState("")
 
-  const todosRef = db.collection(`/users/${auth.currentUser.uid}/todos`);
-  const [todos] = useCollectionData(todosRef, { idField: "id" });
+  const todosRef = db.collection(`/users/${auth.currentUser.uid}/todos`)
+  const [todos] = useCollectionData(todosRef, { idField: "id" })
 
    const addTodo = (e) => {
-       e.preventDefault();
+       e.preventDefault()
        if (currentTodo) {
          if (currentTodo.length < 25) {
            todosRef
@@ -21,17 +21,18 @@ export default function Todos() {
                createdAt: firebase.firestore.FieldValue.serverTimestamp()
              })
              .catch((error) => {
-               alert("Error adding todo: ", error);
-             });
+               alert("Error adding todo: ", error)
+             })
          } else {
            alert("Todo too big. Set a small goal ;)")
          }
        } else {
          alert("Please enter something to add")
        }
-       setCurrentTodo(""); // Empty the input element
-  };
-  const deleteTodo = (id) => todosRef.doc(id).delete();
+       setCurrentTodo("") // Empty the input element
+  }
+
+  const deleteTodo = (id) => todosRef.doc(id).delete()
 
   return (
     <div className="todos">
@@ -45,14 +46,13 @@ export default function Todos() {
         ></input>
         <input type="submit" className="addBtn" value="Add"></input>
       </form>
-      {todos
-        ? todos.map((todo) => (
-            <div key={todo.id} className="todo">
-              <p>{todo.text}</p>
-              <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+
+      {todos ? todos.map(( { id, text }) => (
+            <div key={id} className="todo">
+              <p>{text}</p>
+              <button onClick={() => deleteTodo(id)}>Delete</button>
             </div>
-          ))
-        : "Loading..."}
+          )) : "No todos found"}
     </div>
-  );
+  )
 }
